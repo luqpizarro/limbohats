@@ -1,0 +1,32 @@
+.imgLogo{
+    width: 5rem;
+}
+
+
+.body {
+    font-family: "quicksand", sans-serif;
+    background-image: linear-gradient(to right top, #000000, #1d050a, #2e080c, #3f0409, #500000);
+    background-color: rgb(17, 0, 0);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    
+}
+
+
+.galeria {
+    margin: 0;
+    padding: 0;
+}
+.galeria .imgStyle {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease-in-out;
+}
+.galeria .imgStyle:hover {
+    transform: scale(1.05);
+}
+
