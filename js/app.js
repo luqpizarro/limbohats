@@ -1,72 +1,149 @@
-let gorra = prompt('Que modelo de gorra buscas?');
+//VARIABLES Y SELECCIONADORES
+let modelo = document.getElementById('modelo');
+let tipo = document.getElementById('tipo');
+let minimo = document.getElementById('minimo');
+let maximo = document.getElementById('maximo');
+let color = document.getElementById('color');
 
-console.log(`la gorra que buscas es ${gorra}`);
-
-
-// Condicional
-
-if (gorra === 'snap' || gorra === 'baseball' || gorra === 'trucker') {
-    alert(`te mostraremos gorras ${gorra}`);
-    console.log(`te mostraremos gorras ${gorra}`);
-} else {
-    alert('Ese modelo no esta disponible');
-    console.log('Ese modelo no esta disponible');
+let datosBusqueda = {
+    modelo: '',
+    tipo: '',
+    minimo: '',
+    maximo: '',
+    color: '',
 };
 
+console.log(datosBusqueda)
 
-// Condicional calculador de interes
 
-let precio = parseInt(prompt('Precio de la gorra?'));
-let cuotas = parseInt(prompt('En cuantas cuotas? 3, 6 o 9'));
-const tresCuotas = 1.1;
-const seisCuotas = 1.2;
-const nueveCuotas = 1.3;
+//EVENT LISTENERS
 
-function precioFinal (precio, interes) {
-    let resultado = precio * interes
-    alert(`El valor total es de ${resultado}`)
-}
+document.addEventListener('DOMContentLoaded', () => {
+    mostrarGorras(gorras)
+})
 
-function obtenerCuotas() {
-    if (
-        cuotas === 3 ||
-        cuotas === 6 ||
-        cuotas === 9 ||
-        cuotas === 'tres' ||
-        cuotas === 'seis' ||
-        cuotas === 'nueve' ||
-        cuotas === 'Tres' ||
-        cuotas === 'Seis' ||
-        cuotas === 'Nueve'
-    ) {
-        if (cuotas === 3 || cuotas === 'tres' || cuotas === 'Tres') {
-        precioFinal(precio, tresCuotas);
-        } else if (cuotas === 6 || cuotas === 'seis' || cuotas === 'Seis') {
-        precioFinal(precio, seisCuotas);
-        } else if (cuotas === 9 || cuotas === 'nueve' || cuotas === 'Nueve') {
-        precioFinal(precio, nueveCuotas);
-        }
-    } else {
-        console.error('Elija un formato válido');
-        cuotas = parseInt(prompt('En cuantas cuotas? 3, 6 o 9'));
-        obtenerCuotas();
+modelo.addEventListener('input', e => {
+    datosBusqueda.modelo = e.target.value;
+    filtarGorra()
+})
+
+tipo.addEventListener('input', e => {
+    datosBusqueda.tipo = e.target.value;
+    filtarGorra()
+})
+
+minimo.addEventListener('input', e => {
+    datosBusqueda.minimo = parseInt(e.target.value);
+    filtarGorra()
+})
+
+maximo.addEventListener('input', e => {
+    datosBusqueda.maximo = parseInt(e.target.value);
+    filtarGorra()
+})
+
+color.addEventListener('input', e => {
+    datosBusqueda.color = e.target.value;
+    filtarGorra()
+    console.log(datosBusqueda)
+})
+
+
+
+//FUNCIONES
+
+function limpiarHTML() {
+    // Leer el elemento Resultado
+    const contenedor = document.querySelector('#contenedorGorras');
+
+    // limpiar los resultados anteriores
+    while(contenedor.firstChild) {
+        contenedor.removeChild(contenedor.firstChild);
     }
 }
 
-obtenerCuotas();
 
+// Esta Funcion muestra las gorras en el html
+function mostrarGorras(gorras) {
+    //Reset HTML
+    limpiarHTML();
+    //Seleccionar contenedor de gorras
+    const contenedor = document.querySelector('#contenedorGorras');
 
+    //Construir HTML con los datos de la busqueda
+    gorras.forEach(gorra => {
 
+        const gorraHTML = document.createElement('div');
+        gorraHTML.classList.add('col-sm-12', 'col-md-5', 'col-lg-3', 'my-4');
+        gorraHTML.innerHTML = `
+            <figure class="galeria">
+                <img src="${gorra.img}" class="imgStyle" alt="foto de gorra">
+            </figure>
+        `;
+        contenedor.appendChild(gorraHTML);
+    });
+}
 
+function error() {
+    limpiarHTML()
+    
+    const contenedor = document.querySelector('#contenedorGorras');
 
-// Ciclos for
+    const errorHTML = document.createElement('div');
+    errorHTML.innerHTML = `
+    <div class="alert alert-danger text-center" role="alert">
+        Ninguna gorra encontrada
+    </div>
+    `;
+    contenedor.appendChild(errorHTML);
 
-let tiposGorra = ['snap', 'baseball', 'trucker'];
+    setTimeout(() => {
+        errorHTML.remove()
+        mostrarGorras(gorras)
+    }, 2000);
+}
 
-console.log(tiposGorra);
+function filtarGorra() {
+    const resultado = gorras.filter(filtrarModelo).filter(filtrarTipo).filter(filtrarMinimo).filter(filtrarMaximo).filter(filtrarColor);
 
-for (let i = 0; i < tiposGorra.length; i++) {
-    const modelos = tiposGorra[i];
-    console.log(modelos);
-};
+    if(resultado.length){
+        mostrarGorras(resultado);
+    } else {
+        error();
+    }
+}
 
+function filtrarModelo(gorra) {
+    if(datosBusqueda.modelo){
+        return gorra.modelo === datosBusqueda.modelo;
+    }
+    return gorra;
+}
+
+function filtrarTipo(gorra) {
+    if(datosBusqueda.tipo){
+        return gorra.tipo === datosBusqueda.tipo;
+    }
+    return gorra;
+}
+
+function filtrarMinimo(gorra) {
+    if(datosBusqueda.minimo){
+        return gorra.precio >= datosBusqueda.minimo;
+    }
+    return gorra;
+}
+
+function filtrarMaximo(gorra) {
+    if(datosBusqueda.maximo){
+        return gorra.precio <= datosBusqueda.maximo;
+    }
+    return gorra;
+}
+
+function filtrarColor(gorra) {
+    if(datosBusqueda.color){
+        return gorra.color === datosBusqueda.color;
+    }
+    return gorra;
+}

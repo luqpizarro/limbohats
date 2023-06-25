@@ -1,0 +1,21 @@
+.main {
+    background-image: linear-gradient(to right top, #220000, #2f0503, #3d0505, #4c0304, #5b0101);
+    ;
+}
+
+.galeria {
+    margin: 0;
+    padding: 0;
+
+    .imgStyle {
+        width: 90%;
+        height: auto;
+        display: block;
+        border-radius: 0.5rem;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}

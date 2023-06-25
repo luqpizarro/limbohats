@@ -1,0 +1,26 @@
+
+.body__nav {
+    background-image: linear-gradient(to right top, #313131, #3b3b3b, #454545, #4f4f4f, #5a5a5a, #5a5a5a, #5a5a5a, #5a5a5a, #4f4f4f, #454545, #3b3b3b, #313131);
+
+    
+    .nav__div__ul{
+        list-style-type: none;
+    
+        .body__nav__div__ul__li__a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+    
+            &:hover{
+                color: rgb(150, 150, 150)
+            }
+        }
+
+        .activado {
+            color: #cccaca;
+        }
+    }
+    
+    .body__nav__div__a__img_logo {
+        width: 10rem;
+    }
+}
