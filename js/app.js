@@ -1,3 +1,18 @@
+let pregunta = prompt('Que estilo de gorra queres? SNAP, TRUCKER o BASEBALL?').toLowerCase()
+console.log(pregunta)
+let contador = 0
+gorras.forEach( (gorra) => {
+    if(pregunta === gorra.tipo) {
+        contador++
+        console.log(contador)
+    }
+})
+let alerta = alert(`Hay ${contador} modelos distintos`)
+console.log(`Hay ${contador} modelos distintos`)
+
+
+
+
 //VARIABLES Y SELECCIONADORES
 let modelo = document.getElementById('modelo');
 let tipo = document.getElementById('tipo');
@@ -13,39 +28,39 @@ let datosBusqueda = {
     color: '',
 };
 
-console.log(datosBusqueda)
+console.log(datosBusqueda);
 
 
 //EVENT LISTENERS
 
 document.addEventListener('DOMContentLoaded', () => {
-    mostrarGorras(gorras)
+    mostrarGorras(gorras);
 })
 
 modelo.addEventListener('input', e => {
     datosBusqueda.modelo = e.target.value;
-    filtarGorra()
+    filtarGorra();
 })
 
 tipo.addEventListener('input', e => {
     datosBusqueda.tipo = e.target.value;
-    filtarGorra()
+    filtarGorra();
 })
 
 minimo.addEventListener('input', e => {
     datosBusqueda.minimo = parseInt(e.target.value);
-    filtarGorra()
+    filtarGorra();
 })
 
 maximo.addEventListener('input', e => {
     datosBusqueda.maximo = parseInt(e.target.value);
-    filtarGorra()
+    filtarGorra();
 })
 
 color.addEventListener('input', e => {
     datosBusqueda.color = e.target.value;
-    filtarGorra()
-    console.log(datosBusqueda)
+    filtarGorra();
+    console.log(datosBusqueda);
 })
 
 
@@ -85,7 +100,7 @@ function mostrarGorras(gorras) {
 }
 
 function error() {
-    limpiarHTML()
+    limpiarHTML();
     
     const contenedor = document.querySelector('#contenedorGorras');
 
@@ -98,8 +113,8 @@ function error() {
     contenedor.appendChild(errorHTML);
 
     setTimeout(() => {
-        errorHTML.remove()
-        mostrarGorras(gorras)
+        errorHTML.remove();
+        mostrarGorras(gorras);
     }, 2000);
 }
 
