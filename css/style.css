@@ -20,6 +20,35 @@
 .body__nav .nav__div__ul .activado {
   color: #cccaca;
 }
+.body__nav .nav__div__ul .submenu {
+  position: relative;
+}
+.body__nav .nav__div__ul .submenu #user {
+  display: none;
+}
+.body__nav .nav__div__ul .submenu:hover #user {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 1;
+  background-color: white;
+  padding: 20px;
+  min-width: 300px;
+}
+.body__nav .nav__div__ul .submenu #carrito {
+  display: none;
+}
+.body__nav .nav__div__ul .submenu:hover #carrito {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 1;
+  background-color: white;
+  padding: 20px;
+  min-width: 300px;
+}
 .body__nav .body__nav__div__a__img_logo {
   width: 10rem;
 }
@@ -31,16 +60,19 @@
 .galeria {
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 .galeria .imgStyle {
-  width: 90%;
-  height: auto;
-  display: block;
-  border-radius: 0.5rem;
+  width: 18rem;
+  border-radius: 1.5rem;
   transition: all 0.3s ease-in-out;
 }
 .galeria .imgStyle:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+}
+
+.imgStyleModal {
+  width: 30%;
 }
 
 .footer {

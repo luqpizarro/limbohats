@@ -18,6 +18,39 @@
         .activado {
             color: #cccaca;
         }
+
+        .submenu {
+            position: relative;
+        }
+
+        .submenu #user{
+            display: none;
+        }
+        .submenu:hover #user{
+            display: block;
+            position: absolute;
+            right:0;
+
+            top:100%;
+            z-index: 1;
+            background-color: white;
+            padding: 20px;
+            min-width: 300px;
+        }
+        .submenu #carrito{
+            display: none;
+        }
+        .submenu:hover #carrito{
+            display: block;
+            position: absolute;
+            right:0;
+
+            top:100%;
+            z-index: 1;
+            background-color: white;
+            padding: 20px;
+            min-width: 300px;
+        }
     }
     
     .body__nav__div__a__img_logo {

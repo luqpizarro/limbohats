@@ -6,16 +6,19 @@
 .galeria {
     margin: 0;
     padding: 0;
+    text-align: center;
 
     .imgStyle {
-        width: 90%;
-        height: auto;
-        display: block;
-        border-radius: 0.5rem;
+        width:18rem;
+        border-radius: 1.5rem;
         transition: all 0.3s ease-in-out;
 
         &:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
     }
+}
+
+.imgStyleModal {
+    width: 30%;
 }

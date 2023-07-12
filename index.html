@@ -29,6 +29,82 @@
                     <li>
                         <a href="#" class="m-3 body__nav__div__ul__li__a">Accesorios</a>
                     </li>
+                    <li class="submenu ms-5">
+                        <i class="fa-solid fa-user fa-xl" id="img-user"></i>
+                        <div id="user">                              
+                            <div id="lista-user" class="u-full-width">
+                                <form action="" id="formInicioSesion">
+                                    <div class="row">
+                                        <div>
+                                            <input type="text" id="usuario" class="form-control" placeholder="Usuario" aria-label="usuario">
+                                        </div>
+                                        <div class="mt-1">
+                                            <input type="password" id="contrasenia" class="form-control" placeholder="Contraseña" aria-label="contraseña">
+                                        </div>
+                                        <div class="mt-3 text-center">
+                                            <button type="submit" id="inicioSesion" class="btn btn-primary mx-3">Iniciar</button>
+                                            <button type="button" class="btn btn-danger mx-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear Cuenta</button>
+                                        </div>
+                                    </div>
+                                    
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Crear Usuario</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="" id="form">
+                                        <div class="row">
+                                            <div>
+                                                <input type="text" id="usuarioNuevo" class="form-control" placeholder="Usuario" aria-label="usuario">
+                                            </div>
+                                            <div class="mt-1">
+                                                <input type="password" id="contraseniaNuevo" class="form-control" placeholder="Contraseña" aria-label="contraseña">
+                                            </div>
+                                            <div class="mt-1">
+                                                <input type="email" id="emailNuevo" class="form-control" placeholder="Email" aria-label="email">
+                                            </div>
+                                            <div class="mt-3 text-center">
+                                                <p>*El usuario tiene que tener mas de 5 letras</p>
+                                                <p>*La contraseña debe tener mas de 8 letras</p>
+                                            </div>
+                                            <div class="mt-3 text-center">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" id="crearCuenta" class="btn btn-danger mx-3">Crear Cuenta</button>
+                                            </div>
+                                            <div id="mensaje" class="mt-4"></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <div id="checkUser" class="mx-2 text-light text-center"></div>
+                    <li class="submenu position-absolute top-10 start-0 ms-5">
+                        <a href="" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img src="./assets/img/cart.png" alt="imagen carrito"></a>  
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Carrito de Compras</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body" id="">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                    <button type="button" class="btn btn-primary">Comprar</button>
+                                </div>
+                                </div>
+                            </div>
+                            </div>                        
+                    </li>
                 </ul>
                 <a href="#" class="mx-auto my-2">
                     <img src="./assets/img/Logo.png" alt="logo limbo" class="body__nav__div__a__img_logo">
@@ -116,7 +192,7 @@
             </div>
         </form>
         <div class="container">
-            <div id="contenedorGorras" class="row justify-content-center"></div>
+            <div id="contenedorGorras" class="row justify-content-center align-items-center"></div>
         </div>
     </main>
 
