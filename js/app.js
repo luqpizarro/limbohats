@@ -47,7 +47,16 @@ class UI {
             contenedor.removeChild(contenedor.firstChild);
         }
     }
+
+    // Elimina las gorras del carrito en el DOM
+    vaciarCarrito() {
+
+        while(contenedorCarrito.firstChild) {
+            contenedorCarrito.removeChild(contenedorCarrito.firstChild);
+        }
+    }   
 }
+
 const ui = new UI;
 
 //EVENT LISTENERS
@@ -164,7 +173,7 @@ function verificarUsuario(e) {
         userId.appendChild(divUser)
 
         const formInicio = document.getElementById('formInicioSesion')
-        //formInicio.reset()
+        formInicio.reset()
         return;
     } 
     
@@ -201,6 +210,13 @@ function mostrarGorras(gorras) {
         const boton = document.getElementById(`${gorra.id}`)
         boton.addEventListener('click', () => {
             agregarCarrito(gorra)
+
+            swal({
+                title: "Muy bien!",
+                text: "Gorra Agregada al Carrito",
+                icon: "success",
+                timer: 1500
+            });
         })
     });
 }
@@ -213,8 +229,22 @@ function agregarCarrito(gorra) {
 
     articulosCarrito.push(gorra)
     console.log(articulosCarrito)
+    
+    ui.vaciarCarrito()
+    articulosCarrito.map( gorra => {
+        const divCarrito = document.createElement('div');
+        divCarrito.innerHTML = `
+        <ul class="list-group">
+            <li class="list-group-item">${gorra.nombre} - Precio: $ ${gorra.precio}</li>
+        </ul>
+        `
+
+        const contenedorCarrito = document.getElementById('contenedorCarrito')
+        contenedorCarrito.appendChild(divCarrito)
+    })
 
     localStorage.setItem('carrito', JSON.stringify(articulosCarrito))
+
 }
 
 // Esta parte crea la funcion de filtrar la gorra y cada parte del filtro
