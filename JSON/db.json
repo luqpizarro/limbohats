@@ -1,0 +1,253 @@
+[{
+    "nombre" : "Gorra Maradona",
+    "modelo" : "Diez",
+    "tipo" : "Trucker",
+    "color" : "Gris",
+    "precio" : 4600,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$4600/trucker 10 gris.jpg",
+    "id" : 1
+},{
+    "nombre" : "Gorra Gato",
+    "modelo" : "Gato",
+    "tipo" : "Trucker",
+    "color" : "Gris",
+    "precio" : 4600,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$4600/trucker gato gris.jpg",
+    "id" : 2
+},{
+    "nombre" : "Gorra Calavera Limbo",
+    "modelo" : "Limbo",
+    "tipo" : "Trucker",
+    "color" : "Blanco y Negro",
+    "precio" : 4600,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$4600/trucker limbo blanco y negro.jpg",
+    "id" : 3
+},{
+    "nombre" : "Gorra Calavera Limbo",
+    "modelo" : "Limbo",
+    "tipo" : "Trucker",
+    "color" : "Verde",
+    "precio" : 4600,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$4600/trucker limbo verde.jpg",
+    "id" : 4
+},{
+    "nombre" : "Gorra Numero 13",
+    "modelo" : "Trece",
+    "tipo" : "Trucker",
+    "color" : "Negro",
+    "precio" : 5000,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$5000/trucker 13 negro.jpg",
+    "id" : 5
+},{
+    "nombre" : "Gorra Flor Tradi",
+    "modelo" : "Flor",
+    "tipo" : "Trucker",
+    "color" : "Negro",
+    "precio" : 5000,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$5000/trucker flor negro.jpg",
+    "id" : 6
+},{
+    "nombre" : "Gorra Serpiente",
+    "modelo" : "Serpiente",
+    "tipo" : "Trucker",
+    "color" : "Blanco y Negro",
+    "precio" : 5000,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$5000/trucker serpiente blanco y negro.jpg",
+    "id" : 7
+},{
+    "nombre" : "Gorra Calavera Limbo",
+    "modelo" : "Calavera",
+    "tipo" : "Trucker",
+    "color" : "Gris",
+    "precio" : 5000,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$5000/truker calavera colorida gris.jpg",
+    "id" : 8
+},{
+    "nombre" : "Gorra Numero Trece",
+    "modelo" : "Limbo",
+    "tipo" : "Trucker",
+    "color" : "Negro",
+    "precio" : 5000,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$5000/truker lmb negro.jpg",
+    "id" : 9
+},{
+    "nombre" : "Gorra Cangrejo",
+    "modelo" : "Cangrejo",
+    "tipo" : "Baseball",
+    "color" : "Negro",
+    "precio" : 5500,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$5500/baseball cangrejo negro.jpg",
+    "id" : 10
+},{
+    "nombre" : "Gorra Flor Tradi",
+    "modelo" : "Flor",
+    "tipo" : "Baseball",
+    "color" : "Gris",
+    "precio" : 5500,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$5500/baseball flor gris.jpg",
+    "id" : 11
+},{
+    "nombre" : "Gorra Flor Tradi",
+    "modelo" : "Flor",
+    "tipo" : "Baseball",
+    "color" : "Violeta",
+    "precio" : 5500,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$5500/baseball flor violeta.jpg",
+    "id" : 12
+},{
+    "nombre" : "Gorra IPA",
+    "modelo" : "IPA",
+    "tipo" : "Baseball",
+    "color" : "Verde",
+    "precio" : 5500,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$5500/baseball ipa verde.jpg",
+    "id" : 13
+},{
+    "nombre" : "Gorra Calavera Skull",
+    "modelo" : "Calavera",
+    "tipo" : "Snap",
+    "color" : "Amarillo",
+    "precio" : 5500,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$5500/snap calavera amarillo y negro.jpg",
+    "id" : 14
+},{
+    "nombre" : "Gorra Gato",
+    "modelo" : "Gato",
+    "tipo" : "Snap",
+    "color" : "Rojo",
+    "precio" : 5500,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$5500/snap gato rojo.jpg",
+    "id" : 15
+},{
+    "nombre" : "Gorra IPA",
+    "modelo" : "IPA",
+    "tipo" : "Snap",
+    "color" : "Verde",
+    "precio" : 5500,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$5500/snap ipa verde.jpg",
+    "id" : 16
+},{
+    "nombre" : "Gorra IPA",
+    "modelo" : "IPA",
+    "tipo" : "Snap",
+    "color" : "Verde",
+    "precio" : 5500,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$5500/snap ipa verde.jpg",
+    "id" : 16
+},{
+    "nombre" : "Gorra Limbo Tattoo",
+    "modelo" : "Limbo",
+    "tipo" : "Snap",
+    "color" : "Negro",
+    "precio" : 5500,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$5500/snap limbo hats negro.jpg",
+    "id" : 17
+},{
+    "nombre" : "Gorra Limbo Argentina",
+    "modelo" : "Limbo",
+    "tipo" : "Snap",
+    "color" : "Blanco",
+    "precio" : 5500,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$5500/snap lmb arg blanco.jpg",
+    "id" : 18
+},{
+    "nombre" : "Gorra Limbo Radioactivo",
+    "modelo" : "Limbo",
+    "tipo" : "Snap",
+    "color" : "Negro",
+    "precio" : 5500,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$5500/snap limbo radioactivo negro.jpg",
+    "id" : 19
+},{
+    "nombre" : "Gorra Numero 13",
+    "modelo" : "Trece",
+    "tipo" : "Baseball",
+    "color" : "Negro",
+    "precio" : 6500,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$6500/baseball 13 negro.jpg",
+    "id" : 20
+},{
+    "nombre" : "Gorra Cadenas",
+    "modelo" : "Cadena",
+    "tipo" : "Baseball",
+    "color" : "Negro",
+    "precio" : 6500,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$6500/baseball cadena negro.jpg",
+    "id" : 21
+},{
+    "nombre" : "Gorra Calavera Skull",
+    "modelo" : "Calavera",
+    "tipo" : "Baseball",
+    "color" : "Amarillo",
+    "precio" : 6500,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$6500/baseball calavera.jpg",
+    "id" : 22
+},{
+    "nombre" : "Gorra Saturno",
+    "modelo" : "Planeta",
+    "tipo" : "Baseball",
+    "color" : "Gris",
+    "precio" : 6500,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$6500/baseball planeta gris.jpg",
+    "id" : 23
+},{
+    "nombre" : "Gorra Numero 13",
+    "modelo" : "Trece",
+    "tipo" : "Snap",
+    "color" : "Negro",
+    "precio" : 6500,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$6500/snap 13 negro.jpg",
+    "id" : 24
+},{
+    "nombre" : "Gorra Cadenas",
+    "modelo" : "Cadena",
+    "tipo" : "Snap",
+    "color" : "Blanco y Negro",
+    "precio" : 6500,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$6500/snap cadena blanca y negra.jpg",
+    "id" : 25
+},{
+    "nombre" : "Gorra Calavera Skull",
+    "modelo" : "Calavera",
+    "tipo" : "Snap",
+    "color" : "Blanco y Negro",
+    "precio" : 6500,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$6500/snap calavera.jpg",
+    "id" : 26
+},{
+    "nombre" : "Gorra Gato",
+    "modelo" : "Gato",
+    "tipo" : "Snap",
+    "color" : "Negro",
+    "precio" : 6500,
+    "stock" : true,
+    "img" : "./assets/img/GORRAS/$6500/snap gato grande negro.jpg",
+    "id" : 27
+} ]

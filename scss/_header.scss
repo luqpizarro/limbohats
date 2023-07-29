@@ -21,11 +21,14 @@
 
         .submenu {
             position: relative;
+
+            #user{
+                display: none;
+
+            }
         }
 
-        .submenu #user{
-            display: none;
-        }
+
         .submenu:hover #user{
             display: block;
             position: absolute;

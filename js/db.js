@@ -1,4 +1,4 @@
-class Gorras {
+/*class Gorras {
     constructor (nombre, modelo, tipo, color, precio, stock, img, id){
         this.nombre = nombre;
         this.modelo = modelo;
@@ -70,4 +70,4 @@ const gorras = [
     SnapCalaveraBlancoYNegro,
     SnapGatoNegro
 ]
-
+*/
