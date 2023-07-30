@@ -13,11 +13,10 @@ let contenedorGorras = document.getElementById('contenedorGorras');
     //Seleccionar contenedor carrito
 let contenedorCarrito = document.getElementById('contenedorCarrito');
 let botonEliminarCarrito = document.getElementById('btnEliminarCarrito');
-//let botonEliminarGorra = document.getElementsByClassName('eliminar-gorra');
 
 let usuario = document.getElementById('usuario').value;
 let contrasenia = document.getElementById('contrasenia').value;
-let btnEliminar
+let btnEliminar;
 
 let datosBusqueda = {
     modelo: '',
@@ -70,14 +69,12 @@ botonInicio.addEventListener('click', verificarUsuario);
 botonCrearCuenta.addEventListener('click', almacenarUsuario);
 
 botonEliminarCarrito.addEventListener('click', eliminarCarrito);
-//contenedorCarrito.addEventListener('click', eliminarGorra);
+
 
 //CLASSES
 class UI {
     //Imprime el carrito en el DOM
     carritoHTML() {
-
-
         articulosCarrito.map( gorra => {
             const divCarrito = document.createElement('div');
             divCarrito.classList.add('d-flex', 'align-items-center', 'justify-content-center', 'm-2', 'p-1');
@@ -85,24 +82,18 @@ class UI {
             divCarrito.innerHTML = `
                 <img src="${gorra.img}" class="w-25 rounded" alt="foto de gorra">
                 <p class="text-center text-light flex-grow-1">${gorra.nombre} - Precio: $ ${gorra.precio}</p>
-                <button type="button" id="${gorra.id}-gorra" class="btn btn-danger rounded eliminar-gorra">X</button>
+                <button type="button" id="${gorra.id}-gorra" onclick="eliminarGorra(${gorra.id})" class="btn btn-danger rounded eliminar-gorra">X</button>
             `;
             contenedorCarrito.appendChild(divCarrito);
 
             btnEliminar = document.getElementById(`${gorra.id}-gorra`);
             btnEliminar.addEventListener('click', (e) => {
-
                 e.preventDefault();
                 e.target.parentNode.remove();
-
-                const elemento = e.target.id.replace('-gorra', '');
-                const gorraEliminada = articulosCarrito.filter( gorra => gorra.id != elemento);
-                localStorage.setItem('carrito', JSON.stringify(gorraEliminada));
-            });
         });
 
-        
-    }
+        });
+    };
 
     //Imprime mensajes en el DOM
     imprimirMensaje(mensaje, tipo, lugar) {
@@ -167,6 +158,7 @@ class UI {
 };
 
 const ui = new UI;
+
 
 //FUNCIONES
 
@@ -238,10 +230,10 @@ function verificarUsuario(e) {
         const formInicio = document.getElementById('formInicioSesion');
         formInicio.reset();
         return;
-    } 
+    };  
     
     usuarios.some( user => user.usuario === usuario && contrasenia != user.contrasenia) ? ui.imprimirMensaje('Contraseña incorrecta', 'error', formInicioSesion) : ui.imprimirMensaje('Usuario No Encontrado, Cree Su Cuenta', 'error', formInicioSesion);
-}
+};
 
 
 //___________________________________________
@@ -260,9 +252,8 @@ async function mostrarGorras() {
         });
     } catch (err) {
         return console.error(err);
-    }
-    
-}
+    };
+};
 
 //____________________________________________
 // Estas funciones hacen la logica del carrito
@@ -282,10 +273,10 @@ function agregarCarrito(gorra) {
 function mostrarCarrito() {
     if (!articulosCarrito || articulosCarrito.length === 0) {
         return;
-    }
+    };
 
     ui.vaciarCarrito();
-    ui.carritoHTML()
+    ui.carritoHTML();
     sumaTotalCarrito(articulosCarrito);
 };
 
@@ -311,8 +302,16 @@ function eliminarCarrito() {
         localStorage.removeItem('carrito');
         const carritoEntero = document.getElementById('contenedorCarrito');
         carritoEntero.remove();
-    }
+    };
 };
+
+function eliminarGorra(gorra){
+    
+
+    const id = gorra;
+    articulosCarrito = articulosCarrito.filter( gorro => gorro.id != id);
+    localStorage.setItem('carrito', JSON.stringify(articulosCarrito));
+}
 
 //_______________________________________________________________________
 // Esta parte crea la funcion de filtrar la gorra y cada parte del filtro
@@ -332,11 +331,10 @@ async function filtarGorra() {
         } else {
             ui.limpiarHTML();
             ui.imprimirMensaje('Ninguna Gorra Encontrada', 'error', contenedorGorras);
-        }
+        };
     } catch (err) {
         return console.error(err);
     };
-    
 };
 
 function filtrarModelo(gorra) {
