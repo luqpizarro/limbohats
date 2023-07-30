@@ -17,7 +17,7 @@ let botonEliminarCarrito = document.getElementById('btnEliminarCarrito');
 
 let usuario = document.getElementById('usuario').value;
 let contrasenia = document.getElementById('contrasenia').value;
-
+let btnEliminar
 
 let datosBusqueda = {
     modelo: '',
@@ -76,6 +76,8 @@ botonEliminarCarrito.addEventListener('click', eliminarCarrito);
 class UI {
     //Imprime el carrito en el DOM
     carritoHTML() {
+
+
         articulosCarrito.map( gorra => {
             const divCarrito = document.createElement('div');
             divCarrito.classList.add('d-flex', 'align-items-center', 'justify-content-center', 'm-2', 'p-1');
@@ -87,16 +89,19 @@ class UI {
             `;
             contenedorCarrito.appendChild(divCarrito);
 
-            const btnEliminar = document.getElementById(`${gorra.id}-gorra`)
+            btnEliminar = document.getElementById(`${gorra.id}-gorra`);
             btnEliminar.addEventListener('click', (e) => {
-                e.target.parentNode.remove()
-                const elemento = e.target.id.replace('-gorra', '')
-                
-                const gorraEliminada = articulosCarrito.filter( gorra => gorra.id != elemento)
-                console.log(gorraEliminada)
-                localStorage.setItem('carrito', JSON.stringify(gorraEliminada))
-            })
+
+                e.preventDefault();
+                e.target.parentNode.remove();
+
+                const elemento = e.target.id.replace('-gorra', '');
+                const gorraEliminada = articulosCarrito.filter( gorra => gorra.id != elemento);
+                localStorage.setItem('carrito', JSON.stringify(gorraEliminada));
+            });
         });
+
+        
     }
 
     //Imprime mensajes en el DOM
@@ -114,11 +119,9 @@ class UI {
     };
 
     limpiarHTML() {
-        // Leer el elemento Resultado
-        const contenedor = document.querySelector('#contenedorGorras');
         // limpiar los resultados anteriores
-        while(contenedor.firstChild) {
-            contenedor.removeChild(contenedor.firstChild);
+        while(contenedorGorras.firstChild) {
+            contenedorGorras.removeChild(contenedorGorras.firstChild);
         };
     };
 
@@ -149,7 +152,8 @@ class UI {
         
         // EVENTO PARA AGREGAR ITEMS AL CARRITO
         const boton = document.getElementById(`${gorra.id}`);
-        boton.addEventListener('click', () => {
+        boton.addEventListener('click', (e) => {
+            e.preventDefault()
             agregarCarrito(gorra);
 
             swal({
@@ -252,7 +256,7 @@ async function mostrarGorras() {
         const gorras = data;
         //Construir HTML con los datos de la busqueda
         gorras.forEach(gorra => {
-            ui.imprimirGorras(gorra);
+            ui.imprimirGorras(gorra);            
         });
     } catch (err) {
         return console.error(err);
@@ -308,26 +312,6 @@ function eliminarCarrito() {
         const carritoEntero = document.getElementById('contenedorCarrito');
         carritoEntero.remove();
     }
-};
-
-function eliminarGorra(){
-    articulosCarrito.map(gorra => {
-
-
-    //     const btnEliminar = document.getElementById(`${gorra.id}-gorra`)
-    //     btnEliminar.addEventListener('click', (e) => {
-    //         //e.target.parentNode.remove()
-    //         const elemento = e.target.id.replace('-gorra', '')
-    //         console.log(elemento)
-
-    //         articulosCarrito.filter(gorra => gorra.id !== elemento).map(gorra => {
-    //             articulosCarrito.push(gorra)
-                
-    //         })
-    //         console.log(articulosCarrito)
-    //         //agregarCarrito(articulosCarrito)
-    //     })
-    })
 };
 
 //_______________________________________________________________________
