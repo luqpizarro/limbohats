@@ -12,6 +12,7 @@ let botonCrearCuenta = document.getElementById('crearCuenta');
 let contenedorGorras = document.getElementById('contenedorGorras');
     //Seleccionar contenedor carrito
 let contenedorCarrito = document.getElementById('contenedorCarrito');
+let contenedorTotalPagar = document.getElementById('totalPagar');
 let botonEliminarCarrito = document.getElementById('btnEliminarCarrito');
 
 let usuario = document.getElementById('usuario').value;
@@ -122,6 +123,7 @@ class UI {
             contenedorCarrito.removeChild(contenedorCarrito.firstChild);
         };
     };
+
 
     // Imprime gorras en el DOM
     imprimirGorras(gorra) {
@@ -276,11 +278,13 @@ function mostrarCarrito() {
     };
 
     ui.vaciarCarrito();
+    //ui.limpiarTotal()
     ui.carritoHTML();
     sumaTotalCarrito(articulosCarrito);
 };
 
 function sumaTotalCarrito(carrito){
+    
     let total = 0;
 
     carrito.forEach(producto => {
@@ -289,6 +293,7 @@ function sumaTotalCarrito(carrito){
 
     const divTotal = document.createElement('div');
         divTotal.classList.add('m-2','mt-3','p-1');
+        divTotal.id = 'totalPagar'
         divTotal.innerHTML = `
             <hr class="text-light">
             <p class="text-center text-light flex-grow-1">Total a pagar $ ${total}</p>
@@ -306,11 +311,10 @@ function eliminarCarrito() {
 };
 
 function eliminarGorra(gorra){
-    
-
     const id = gorra;
     articulosCarrito = articulosCarrito.filter( gorro => gorro.id != id);
     localStorage.setItem('carrito', JSON.stringify(articulosCarrito));
+    sumaTotalCarrito(articulosCarrito)
 }
 
 //_______________________________________________________________________
