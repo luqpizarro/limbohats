@@ -10,9 +10,10 @@ let botonInicio = document.getElementById('inicioSesion');
 let botonCrearCuenta = document.getElementById('crearCuenta');
     //Seleccionar contenedor de gorras
 let contenedorGorras = document.getElementById('contenedorGorras');
-    //Seleccionar contenedor carrito
+    //Seleccionar contenedores
 let contenedorCarrito = document.getElementById('contenedorCarrito');
 let contenedorTotalPagar = document.getElementById('totalPagar');
+    //Seleccionar boton de eliminar carrito
 let botonEliminarCarrito = document.getElementById('btnEliminarCarrito');
 
 let usuario = document.getElementById('usuario').value;
@@ -111,14 +112,21 @@ class UI {
     };
 
     limpiarHTML() {
-        // limpiar los resultados anteriores
+        // limpiar los resultados anteriores de las gorras
         while(contenedorGorras.firstChild) {
             contenedorGorras.removeChild(contenedorGorras.firstChild);
         };
     };
 
+    limpiarTotal() {
+        // limpiar los resultados de total a pagar anterior
+        while(contenedorTotalPagar.firstChild) {
+            contenedorTotalPagar.removeChild(contenedorTotalPagar.firstChild);
+        };
+    };
+
     // Elimina las gorras del carrito en el DOM
-    vaciarCarrito() {
+    limpiarCarrito() {
         while(contenedorCarrito.firstChild) {
             contenedorCarrito.removeChild(contenedorCarrito.firstChild);
         };
@@ -146,7 +154,7 @@ class UI {
         // EVENTO PARA AGREGAR ITEMS AL CARRITO
         const boton = document.getElementById(`${gorra.id}`);
         boton.addEventListener('click', (e) => {
-            e.preventDefault()
+            e.preventDefault();
             agregarCarrito(gorra);
 
             swal({
@@ -227,6 +235,7 @@ function verificarUsuario(e) {
 
         const divUser = document.createElement('p');
         divUser.innerHTML = `Hola ${usuario}`;
+        divUser.classList.add('mx-2');
         userId.appendChild(divUser);
 
         const formInicio = document.getElementById('formInicioSesion');
@@ -266,7 +275,7 @@ function agregarCarrito(gorra) {
     };
     
     articulosCarrito.push(gorra);
-    ui.vaciarCarrito();
+    ui.limpiarCarrito();
     ui.carritoHTML();
     sumaTotalCarrito(articulosCarrito);
     localStorage.setItem('carrito', JSON.stringify(articulosCarrito));
@@ -277,14 +286,13 @@ function mostrarCarrito() {
         return;
     };
 
-    ui.vaciarCarrito();
-    //ui.limpiarTotal()
+    ui.limpiarCarrito();
     ui.carritoHTML();
     sumaTotalCarrito(articulosCarrito);
 };
 
 function sumaTotalCarrito(carrito){
-    
+    ui.limpiarTotal();
     let total = 0;
 
     carrito.forEach(producto => {
@@ -293,12 +301,11 @@ function sumaTotalCarrito(carrito){
 
     const divTotal = document.createElement('div');
         divTotal.classList.add('m-2','mt-3','p-1');
-        divTotal.id = 'totalPagar'
         divTotal.innerHTML = `
             <hr class="text-light">
             <p class="text-center text-light flex-grow-1">Total a pagar $ ${total}</p>
         `;
-        contenedorCarrito.appendChild(divTotal);
+        contenedorTotalPagar.appendChild(divTotal);
 };
 
 function eliminarCarrito() {
@@ -314,7 +321,7 @@ function eliminarGorra(gorra){
     const id = gorra;
     articulosCarrito = articulosCarrito.filter( gorro => gorro.id != id);
     localStorage.setItem('carrito', JSON.stringify(articulosCarrito));
-    sumaTotalCarrito(articulosCarrito)
+    sumaTotalCarrito(articulosCarrito);
 }
 
 //_______________________________________________________________________
